@@ -15,11 +15,11 @@ sudo pip3 install Pillow==8.4.0
 sudo pip3 install cython
 
 #Install Mod Software
-mkdir /home/pistomp/.lv2
-mkdir /home/pistomp/data
-mkdir /home/pistomp/data/.pedalboards
-mkdir /home/pistomp/data/user-files
-cd /home/pistomp/data/user-files
+mkdir /home/raspberryUsername/.lv2
+mkdir /home/raspberryUsername/data
+mkdir /home/raspberryUsername/data/.pedalboards
+mkdir /home/raspberryUsername/data/user-files
+cd /home/raspberryUsername/data/user-files
 mkdir "Speaker Cabinets IRs"
 mkdir "Reverb IRs"
 mkdir "Audio Loops"
@@ -55,19 +55,7 @@ make
 cd ..
 sudo ./setup.py install
 
-#AudioInjector Stuff
-cd /home/pistomp/mod
-deb_file=audio.injector.scripts_0.1-1_all.deb
-wget https://github.com/Audio-Injector/stereo-and-zero/raw/master/${deb_file}
-sudo dpkg -i ${deb_file}
-rm -f ${deb_file}
-sudo sed -i 's/sudo rpi-update/#sudo rpi-update/' /usr/bin/audioInjector-setup.sh
-/usr/bin/audioInjector-setup.sh
-
-# # Change amixer settings
-cd /home/pistomp/mod
-sudo cp asound.state.RCA.thru.test /usr/share/doc/audioInjector/asound.state.RCA.thru.test
-#alsactl --file /usr/share/doc/audioInjector/asound.state.RCA.thru.test restore
+cd /home/raspberryUsername/mod
 
 #Create Services
 sudo cp *.service /usr/lib/systemd/system/

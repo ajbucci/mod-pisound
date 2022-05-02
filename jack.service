@@ -4,11 +4,11 @@ Description=JACK2 Audio Server
 #After=sound.target
 
 [Service]
-Environment=LV2_PATH=/home/pistomp/.lv2
+Environment=LV2_PATH=/home/raspberryUsername/.lv2
 Environment=JACK_NO_AUDIO_RESERVATION=1
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
-ExecStart=/usr/bin/jackd  -P 70 -t 2000 -s -d alsa -d hw:audioinjectorpi -r 48000 -p 128 -n 2 -X raw
+ExecStart=/usr/bin/jackd -t 2000 -R -P 95 -d alsa -d hw:pisound -r 48000 -p 128 -n 2 -X seq -s -S
 Restart=always
 RestartSec=1
 
