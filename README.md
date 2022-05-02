@@ -4,6 +4,7 @@
 
 to install make sure to run setUsername first
 ```sh setUsername.sh```
+
 ```sh install.sh```
 
  needs testing 
