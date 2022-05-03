@@ -5,7 +5,6 @@ echo "Removing Services"
 sudo rm /usr/lib/systemd/system/browsepy.service
 sudo rm /usr/lib/systemd/system/mod-host.service
 sudo rm /usr/lib/systemd/system/mod-ui.service
-sudo rm /usr/lib/systemd/system/amidiauto.service
 
 echo "Removing Folders"
 sudo rm /home/raspberryUsername/.lv2 -rf

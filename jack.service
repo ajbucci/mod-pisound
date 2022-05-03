@@ -4,6 +4,8 @@ Description=JACK2 Audio Server
 #After=sound.target
 
 [Service]
+User=raspberryUsername
+Group=audio
 Environment=LV2_PATH=/home/raspberryUsername/.lv2
 Environment=JACK_NO_AUDIO_RESERVATION=1
 Environment=JACK_PROMISCUOUS_SERVER=jack

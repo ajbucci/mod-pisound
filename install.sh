@@ -61,4 +61,5 @@ sudo ln -sf /usr/lib/systemd/system/jack.service /etc/systemd/system/multi-user.
 sudo ln -sf /usr/lib/systemd/system/mod-host.service /etc/systemd/system/multi-user.target.wants
 sudo ln -sf /usr/lib/systemd/system/mod-ui.service /etc/systemd/system/multi-user.target.wants
 
+echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment

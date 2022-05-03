@@ -3,6 +3,8 @@ Description=browsepy
 
 [Service]
 #Environment=HOME=/root
+User=raspberryUsername
+Group=audio
 Environment=BROWSEPY_HOST=0.0.0.0
 Environment=BROWSEPY_PORT=8081
 

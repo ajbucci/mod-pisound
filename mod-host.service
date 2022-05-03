@@ -4,7 +4,9 @@ After=jack.service
 BindsTo=jack.service
 
 [Service]
-LimitRTPRIO=95
+User=raspberryUsername
+Group=audio
+LimitRTPRIO=99
 LimitMEMLOCK=infinity
 Type=forking
 Environment=LV2_PATH=/home/raspberryUsername/.lv2
