@@ -8,6 +8,7 @@ Requires=browsepy.service
 [Service]
 LimitRTPRIO=95
 LimitMEMLOCK=infinity
+Environment=JACK_PROMISCUOUS_SERVER=jack
 Environment=HOME=/home/raspberryUsername/
 Environment=LV2_PATH=/home/raspberryUsername/.lv2
 Environment=LV2_PLUGIN_DIR=/home/raspberryUsername/.lv2
