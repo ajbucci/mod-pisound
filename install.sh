@@ -29,7 +29,7 @@ mkdir "Hydrogen Drumkits"
 mkdir "SF2 Instruments"
 mkdir "SFZ Instruments"
 
-#Jack2
+#Jack2 - Recommended to install jackd2 from sources instead of this apt package
 sudo apt install -y jackd2
 
 #Browsepy
@@ -44,7 +44,7 @@ make -j 4
 sudo make install
 
 #Mod-ui
-pushd $(mktemp -d) && git clone --branch hotfix-1.11 https://github.com/moddevices/mod-ui.git
+pushd $(mktemp -d) && git clone  https://github.com/moddevices/mod-ui.git
 pushd mod-ui
 chmod +x setup.py
 cd utils
@@ -55,11 +55,12 @@ sudo ./setup.py install
 cd /home/raspberryUsername/mod
 
 #Create Services
-sudo cp *.service /usr/lib/systemd/system/
-sudo ln -sf /usr/lib/systemd/system/browsepy.service /etc/systemd/system/multi-user.target.wants
-sudo ln -sf /usr/lib/systemd/system/jack.service /etc/systemd/system/multi-user.target.wants
-sudo ln -sf /usr/lib/systemd/system/mod-host.service /etc/systemd/system/multi-user.target.wants
-sudo ln -sf /usr/lib/systemd/system/mod-ui.service /etc/systemd/system/multi-user.target.wants
+sudo cp *.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable browsepy.service 
+sudo systemctl enable jack.service
+sudo systemctl enable mod-host.service 
+sudo systemctl enable mod-ui.service 
 
 echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment
