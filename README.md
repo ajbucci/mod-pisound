@@ -7,6 +7,6 @@ to install make sure to run setUsername first
 
 ```sh install.sh```
 
-your user must be added to a group called adui
+your user must be added to a group called audio
 
  [details](https://forum.moddevices.com/t/raspberry-pi-4-setup-getting-crazy-with-jack/7691)
