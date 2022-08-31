@@ -30,7 +30,15 @@ mkdir "SF2 Instruments"
 mkdir "SFZ Instruments"
 
 #Jack2 - Recommended to install jackd2 from sources instead of this apt package
-sudo apt install -y jackd2
+#sudo apt install -y jackd2
+
+pushd $(mktemp -d) && git clone https://github.com/jackaudio/jack2.git
+pushd jack2
+./waf configure --prefix=/usr
+./waf build
+sudo ./waf install PREFIX=/usr
+
+
 
 #Browsepy
 pushd $(mktemp -d) && git clone https://github.com/moddevices/browsepy.git
