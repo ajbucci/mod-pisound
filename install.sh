@@ -39,7 +39,6 @@ pushd jack2
 sudo ./waf install PREFIX=/usr
 
 
-
 #Browsepy
 pushd $(mktemp -d) && git clone https://github.com/moddevices/browsepy.git
 pushd browsepy
