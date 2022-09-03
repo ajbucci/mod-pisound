@@ -11,7 +11,7 @@ to install make sure to run setUsername first. This will replace the username in
 your user must be added to a group called audio and other perks explained in the [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) for best performance
 
 
-This is an modification from the original repo to work with PiSound hat and some other changes to make it work good on a fresh raspberry pi
+This is a modification from the original repo to work with PiSound hat and some other changes to make it work good on a fresh raspberry pi
 
 The audio settings are in jack.service where you can change the buffer size, sample rate etc.
 
