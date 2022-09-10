@@ -9,11 +9,21 @@ sudo apt update;sudo apt upgrade -y
 
 sudo apt install git
 
+#Clone the repository in your $HOME folder
+
+cd ~
+
 git clone https://github.com/CarloCattano/mod-PiSound
 
 cd mod-PiSound/
 
+sudo chmod +x setUsername.sh 
+
 ./setUsername.sh
+
+./install.sh
+
+#select yes to realtime on jackd2 promt
 ```
 
 your user must be added to a group called audio and other perks explained in the [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) for best performance
@@ -33,3 +43,5 @@ The setup allows to use MOD software alongside other programs like sequencers, p
 
  If you want to overclock your pi to 1.8 GHz instead of the default 1.5 GHz consider using a fan or other means of cooling, things can warm up to 80ºC!
  You do so by adding ```arm_boost=1``` in your ```/boot/config.txt``` 
+
+ uninstall.sh is a WIP 

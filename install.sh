@@ -29,9 +29,7 @@ mkdir "Hydrogen Drumkits"
 mkdir "SF2 Instruments"
 mkdir "SFZ Instruments"
 
-#Jack2 - Recommended to install jackd2 from sources instead of this apt package
-#sudo apt install -y jackd2
-
+#jackd2
 pushd $(mktemp -d) && git clone https://github.com/jackaudio/jack2.git
 pushd jack2
 ./waf configure --prefix=/usr
@@ -59,7 +57,7 @@ make
 cd ..
 sudo ./setup.py install
 
-cd /home/raspberryUsername/mod
+cd /home/raspberryUsername/mod-PiSound
 
 #Create Services
 sudo cp *.service /etc/systemd/system/
@@ -70,9 +68,12 @@ sudo systemctl enable mod-host.service
 sudo systemctl enable mod-ui.service
 
 sudo gpasswd -a $USER audio
-sudo echo "@audio - rtprio 99" >> /etc/security/limits.conf
-sudo echo "@audio - memlock unlimited" >> /etc/security/limits.conf
+
+echo "@audio - rtprio 99" | sudo tee -a /etc/security/limits.conf
+echo "@audio - memlock unlimited" | sudo tee -a /etc/security/limits.conf
 
 
 echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment
+
+./startMod.sh

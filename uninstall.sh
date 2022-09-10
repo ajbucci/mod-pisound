@@ -1,5 +1,10 @@
 #!/bin/sh
 
+sudo systemctl disable browsepy.service 
+sudo systemctl disable jack.service
+sudo systemctl disable mod-host.service 
+sudo systemctl disable mod-ui.service
+
 #remove all created services and folders created by install.sh, service files are in /usr/lib/systemd/system/browsepy.servic
 echo "Removing Services"
 sudo rm /usr/lib/systemd/system/browsepy.service
