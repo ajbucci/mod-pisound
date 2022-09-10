@@ -6,7 +6,9 @@ to install make sure to run setUsername first. This will replace the username in
 
 ```sh setUsername.sh```
 
-```sh install.sh```
+```sudo chmod +x```
+
+```./install.sh```
 
 your user must be added to a group called audio and other perks explained in the [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) for best performance
 
