@@ -1,6 +1,6 @@
 #!/bin/bash -e
 set -x
-echo "halting mod\n"
+echo "halting mod"
 
 sudo service mod-ui stop
 sudo service mod-host stop

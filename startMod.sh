@@ -1,6 +1,6 @@
 #!/bin/bash -e
 set -x
-echo "starting mod...\n"
+echo "starting mod..."
 
 sudo service jack start
 sudo service browsepy start

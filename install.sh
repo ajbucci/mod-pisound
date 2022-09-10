@@ -57,6 +57,13 @@ make
 cd ..
 sudo ./setup.py install
 
+#Hylia - required for LINK sync
+pushd $(mktemp -d) && git clone https://github.com/CarloCattano/Hylia-pi4.git
+pushd Hylia-pi4
+make -j4
+sudo make install PREFIX=/usr
+
+
 cd /home/raspberryUsername/mod-PiSound
 
 #Create Services
@@ -75,6 +82,9 @@ echo "@audio - memlock unlimited" | sudo tee -a /etc/security/limits.conf
 
 echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment
+
+echo "cleaning tmp folder"
+sudo rm -rf /tmp/*
 
 echo "starting mod"
 ./startMod.sh
