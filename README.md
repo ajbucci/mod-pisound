@@ -4,11 +4,17 @@ _use at your own risk!_ _still not widely tested and unsafe_
 
 to install make sure to run setUsername first. This will replace the username in the scripts with your raspberry $USER
 
-```sh setUsername.sh```
+```
+sudo apt update;sudo apt upgrade -y
 
-```sudo chmod +x```
+sudo apt install git
 
-```./install.sh```
+git clone https://github.com/CarloCattano/mod-PiSound
+
+cd mod-PiSound/
+
+./setUsername.sh
+```
 
 your user must be added to a group called audio and other perks explained in the [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) for best performance
 
