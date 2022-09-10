@@ -76,4 +76,5 @@ echo "@audio - memlock unlimited" | sudo tee -a /etc/security/limits.conf
 echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment
 
+echo "starting mod"
 ./startMod.sh
