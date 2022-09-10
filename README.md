@@ -35,7 +35,7 @@ This is a modification from the original to work with PiSound hat and some other
 &nbsp; 
 
 
-The audio settings are in jack.service where you can change the buffer size, sample rate etc.
+The audio settings are in ```jack.service``` where you can change the buffer size(-p), sample rate(-r), periods(-n) etc.
 
 Plugins must be compiled by you either using the [MOD plugin builder](https://github.com/moddevices/mod-plugin-builder)
 Check [my gist](https://gist.github.com/CarloCattano/83d572ea18031ca6e40ce8545b6f174c) explaining how to compile plugins for your pi or mod 
