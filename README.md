@@ -1,21 +1,21 @@
 ##### [MOD Devices](https://moddevices.com/) software install script for Raspberry OS 64bit with [PiSound hat](https://blokas.io/pisound/) from Blokas Labs
 *** 
-_use at your own risk!_ _still not widely tested and unsafe_
 
-to install make sure to run setUsername first. This will replace the username in the scripts with your raspberry $USER
+>_use at your own risk!_ _tested on a fresh install of [Raspberry Pi OS Lite 64bit](https://www.raspberrypi.com/software/operating-systems/)_
+
 
 update system and install git
 ```
 sudo apt update;sudo apt upgrade -y
 sudo apt install git
 ```
-Clone the repository in your $HOME folder
+Clone the repository in your ```$HOME``` folder
 ```
 cd ~
 git clone https://github.com/CarloCattano/mod-PiSound
 cd mod-PiSound/
 ```
-set your username in scripts and services
+sets your username in scripts and services
 ```
 ./setUsername.sh
 ```
@@ -24,7 +24,7 @@ Triggers installation, say yes to the jackd2 promt asking for realtime permissio
 ./install.sh
 ```
 
-your user wull be added to a group called audio and asigned rtprio as per [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) 
+your user will be added to the audio group and assigned rtprio as per [Linux Audio Wiki](https://wiki.linuxaudio.org/wiki/system_configuration) 
 
 
 This is a modification from the original to work with PiSound hat and some other changes to make it work good on a fresh raspberry pi OS install. 
