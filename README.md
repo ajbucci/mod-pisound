@@ -12,12 +12,8 @@ sudo apt install git
 Clone the repository in your ```$HOME``` folder
 ```
 cd ~
-git clone https://github.com/CarloCattano/mod-PiSound
-cd mod-PiSound/
-```
-sets your username in scripts and services
-```
-./setUsername.sh
+git clone https://github.com/ajbucci/mod-pisound
+cd mod-pisound/
 ```
 Triggers installation, say yes to the jackd2 promt asking for realtime permissions
 ```
@@ -30,12 +26,12 @@ your user will be added to the audio group and assigned rtprio as per [Linux Aud
 This is a modification from the original to work with PiSound hat and some other changes to make it work good on a fresh raspberry pi OS install. 
 
 ### Using other soundcards
->+ if you wish to use it with another soundcard (say an 8 ch one for instance :-) just replace the interface name in [this line](https://github.com/CarloCattano/mod-PiSound/blob/180841fd0fb1f49f636e00f46230d9f829b783c4/jack.service#L14) with your interface name instead of ```hw:pisound```
+>+ if you wish to use it with another soundcard (say an 8 ch one for instance :-) just replace the interface name in jackdrc with your interface name instead of ```hw:pisound```
 
 &nbsp; 
 
 
-The audio settings are in ```jack.service``` where you can change the buffer size(-p), sample rate(-r), periods(-n) etc.
+The audio settings are in ```jackdrc``` where you can change the buffer size(-p), sample rate(-r), periods(-n) etc.
 
 Plugins must be compiled by you either using the [MOD plugin builder](https://github.com/moddevices/mod-plugin-builder)
 Check [my gist](https://gist.github.com/CarloCattano/83d572ea18031ca6e40ce8545b6f174c) explaining how to compile plugins for your pi or mod 
