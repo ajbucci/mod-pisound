@@ -34,7 +34,7 @@ This is a modification from the original to work with PiSound hat and some other
 The audio settings are in ```jackdrc``` where you can change the buffer size(-p), sample rate(-r), periods(-n) etc.
 
 Plugins must be compiled by you either using the [MOD plugin builder](https://github.com/moddevices/mod-plugin-builder)
-Check [my gist](https://gist.github.com/CarloCattano/83d572ea18031ca6e40ce8545b6f174c) explaining how to compile plugins for your pi or mod 
+Check [Carlo Cattano's gist](https://gist.github.com/CarloCattano/83d572ea18031ca6e40ce8545b6f174c) explaining how to compile plugins for your pi or mod 
 
 
 The setup allows to use MOD software alongside other programs like sequencers, plugin hosts or other daws and route the audio at will using any jack patching tool
