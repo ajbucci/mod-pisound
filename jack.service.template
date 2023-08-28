@@ -1,0 +1,18 @@
+[Unit]
+Description=JACK2 Audio Server
+#After=sound.target
+
+[Service]
+Environment=LV2_PATH=/home/${USER}/.lv2
+Environment=JACK_NO_AUDIO_RESERVATION=1
+Environment=JACK_PROMISCUOUS_SERVER=jack
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+ExecStart=/etc/jackdrc
+User=${USER}
+Group=audio
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

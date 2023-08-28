@@ -1,0 +1,17 @@
+[Unit]
+Description=browsepy
+
+[Service]
+#Environment=HOME=/root
+User=${USER}
+Group=audio
+Environment=BROWSEPY_HOST=0.0.0.0
+Environment=BROWSEPY_PORT=8081
+
+WorkingDirectory=/home/${USER}/data/user-files/
+ExecStart=/usr/local/bin/browsepy 0.0.0.0 8081 --directory /home/${USER}/data/user-files --upload /home/${USER}/data/user-files --removable /home/${USER}/data/user-files
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
