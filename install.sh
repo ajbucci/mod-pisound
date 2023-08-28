@@ -86,7 +86,7 @@ cd /home/${USER}
 ln -s /home/${USER}/data/.pedalboards /home/${USER}/.pedalboards
 ln -s /home/${USER}/.lv2 /home/${USER}/data/.lv2
 
-cd /home/${USER}/mod-PiSound
+cd /home/${USER}/mod-pisound
 
 # Copy jack driver to etc
 sudo cp jackdrc /etc/
@@ -131,7 +131,7 @@ sudo bash -c "sed -i \"s/^\s*display_auto_detect=/#display_auto_detect=/\" /boot
 sudo bash -c "sed -i \"s/^\s*dtoverlay=vc4-kms-v3d/#dtoverlay=vc4-kms-v3d/\" /boot/config.txt"
 
 # add alsa restore to rc local
-sudo patch -b -N -u /etc/rc.local -i /home/raspberryUser/mod-PiSound/rclocal.diff
+sudo patch -b -N -u /etc/rc.local -i /home/raspberryUser/mod-pisound/rclocal.diff
 
 #echo "cleaning tmp folder"
 #sudo rm -rf /tmp/*
