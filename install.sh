@@ -88,10 +88,6 @@ ln -s /home/${USER}/.lv2 /home/${USER}/data/.lv2
 
 cd /home/${USER}/mod-pisound
 
-# Copy jack driver to etc
-sudo cp jackdrc /etc/
-sudo chmod +x /etc/jackdrc
-
 #Create Services
 cat browsepy.service.template | envsubst > browsepy.service
 cat jack.service.template | envsubst > jack.service
