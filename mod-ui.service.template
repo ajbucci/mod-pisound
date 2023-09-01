@@ -8,8 +8,6 @@ Requires=browsepy.service
 [Service]
 LimitRTPRIO=95
 LimitMEMLOCK=infinity
-User=${USER}
-Group=audio
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 Environment=JACK_PROMISCUOUS_SERVER=jack
 Environment=HOME=/home/${USER}/data
@@ -29,7 +27,9 @@ Environment=PATCHSTORAGE_API_URL=https://patchstorage.com/api/beta/patches
 Environment=PATCHSTORAGE_PLATFORM_ID=8046
 Environment=PATCHSTORAGE_TARGET_ID=8280
 
-ExecStart=/usr/local/bin/mod-ui
+ExecStart=/usr/bin/authbind /usr/local/bin/mod-ui
+User=${USER}
+Group=${USER}
 Restart=always
 RestartSec=2
 

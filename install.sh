@@ -62,7 +62,7 @@ cd utils
 make
 cd ..
 sudo ./setup.py install
-cp -r default.pedalboard /home/${USER}/data/.pedalboards
+cp -r default.pedalboard /home/${USER}/data/.pedalboards/
 
 #Touchosc2midi
 pushd $(mktemp -d) && git clone https://github.com/BlokasLabs/amidithru.git
@@ -97,7 +97,22 @@ cat browsepy.service.template | envsubst > browsepy.service
 cat jack.service.template | envsubst > jack.service
 cat mod-host.service.template | envsubst > mod-host.service
 cat mod-ui.service.template | envsubst > mod-ui.service
+cat mod-midi-merger.service.template | envsubst > mod-midi-merger.service
+cat mod-midi-merger-broadcaster.service.template | envsubst > mod-midi-merger-broadcaster.service
 
+#Create users and groups so services can run as user instead of root
+sudo adduser --no-create-home --system --group jack
+sudo adduser $USER jack --quiet
+sudo adduser root jack --quiet
+sudo adduser jack audio --quiet
+sudo cp jackdrc /etc/
+sudo chmod +x /etc/jackdrc
+sudo chown jack:jack /etc/jackdrc
+sudo cp 80 /etc/authbind/byport/
+sudo chmod 500 /etc/authbind/byport/80
+sudo chown ${USER}:${USER} /etc/authbind/byport/80
+
+# Enable services
 sudo cp *.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable browsepy.service
@@ -106,14 +121,11 @@ sudo systemctl enable mod-host.service
 sudo systemctl enable mod-ui.service
 #sudo systemctl enable mod-amidithru.service
 #sudo systemctl enable mod-touchosc2midi.service
-#sudo systemctl enable mod-midi-merger.service
-#sudo systemctl enable mod-midi-merger-broadcaster.service
-
-sudo gpasswd -a $USER audio
+sudo systemctl enable mod-midi-merger.service
+sudo systemctl enable mod-midi-merger-broadcaster.service
 
 #echo "@audio - rtprio 95" | sudo tee -a /etc/security/limits.conf
 #echo "@audio - memlock unlimited" | sudo tee -a /etc/security/limits.conf
-
 
 echo "creating /etc/environment and setting jack promiscuous mode"
 echo 'JACK_PROMISCUOUS_SERVER=jack' | sudo tee -a /etc/environment

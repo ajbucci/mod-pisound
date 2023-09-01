@@ -49,5 +49,7 @@ The setup allows to use MOD software alongside other programs like sequencers, p
 
 &nbsp;
 
-
- uninstall.sh is a WIP 
+### TODO:
+- [ ] uninstall script
+- [ ] pisound-btn
+- [ ] pisound-ctl

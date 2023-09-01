@@ -9,8 +9,8 @@ Environment=JACK_PROMISCUOUS_SERVER=jack
 LimitRTPRIO=infinity
 LimitMEMLOCK=infinity
 ExecStart=/etc/jackdrc
-User=${USER}
-Group=audio
+User=jack
+Group=jack
 Restart=always
 RestartSec=1
 
